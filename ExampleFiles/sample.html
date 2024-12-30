@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample HTML Page Updated</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .button-primary {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+        .button-primary:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Sample Page</h1>
+        <nav>
+            <ul>
+                <li><a href="#section1">Section 1</a></li>
+                <li><a href="#section2">Section 2</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="section1">
+            <h2>Section 1: Introduction</h2>
+            <p>This section contains a brief introduction about the page.</p>
+            <img src="https://picsum.photos/seed/picsum/200/300" alt="Placeholder Image">
+        </section>
+
+        <section id="section2">
+            <h2>Section 2: Form Example</h2>
+            <form action="/submit" method="post">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username">
+                <br><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password">
+                <br><br>
+                <label for="gender">Gender:</label>
+                <input type="radio" id="male" name="gender" value="male"> Male
+                <input type="radio" id="female" name="gender" value="female"> Female
+                <br><br>
+                <label for="hobbies">Hobbies:</label>
+                <select id="hobbies" name="hobbies">
+                    <option value="reading">Reading</option>
+                    <option value="traveling">Traveling</option>
+                    <option value="sports">Sports</option>
+                </select>
+                <br><br>
+                <button type="submit" class="button-primary">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <h2>Contact Information</h2>
+        <p>Email: <a href="mailto:example@example.com">example@example.com</a></p>
+        <p>Phone: +1234567890</p>
+    </footer>
+</body>
+</html>
