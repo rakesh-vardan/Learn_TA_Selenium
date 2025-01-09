@@ -14,7 +14,7 @@ public class LocatorsTest extends BaseTest {
     public static final String URL = "https://bonigarcia.dev/selenium-webdriver-java/web-form.html";
 
     @Test
-    void testByHtmlAttributes() {
+    public void testByHtmlAttributes() {
         driver.get(URL);
 
         // By id
@@ -24,6 +24,8 @@ public class LocatorsTest extends BaseTest {
 
         // By name
         WebElement textByName = driver.findElement(By.name("my-text"));
+        assertThat(textByName.getDomAttribute("type")).isEqualTo("text");
+        assertThat(textByName.getDomAttribute("myprop")).isEqualTo("myvalue");
         assertThat(textByName.isEnabled()).isTrue();
     }
 
@@ -31,7 +33,7 @@ public class LocatorsTest extends BaseTest {
     public void testByTagName() {
         driver.get(URL);
 
-        // By tag name
+        // By Tag name
         WebElement textarea = driver.findElement(By.tagName("textarea"));
         assertThat(textarea.getDomAttribute("rows")).isEqualTo("3");
     }
@@ -40,43 +42,42 @@ public class LocatorsTest extends BaseTest {
     public void testByClassName() {
         driver.get(URL);
 
-        // By class name
-        List<WebElement> byClassName = driver.findElements(By.className("form-control"));
-        assertThat(byClassName).isNotEmpty();
-        assertThat(byClassName.get(0).getDomAttribute("name")).isEqualTo("my-text");
+        // By Class name
+        List<WebElement> elements = driver.findElements(By.className("form-control")); // returns multiple webelements in an array
+        assertThat(elements).isNotEmpty(); // total 9 elements are returned
+        assertThat(elements.get(0).getDomAttribute("name")).isEqualTo("my-text");
     }
 
     @Test
-    void testByLinkText() {
+    public void testByLinkText() {
         driver.get(URL);
 
-        // by link text
+        // By Link text
         WebElement linkByText = driver.findElement(By.linkText("Return to index"));
         assertThat(linkByText.getTagName()).isEqualTo("a");
         assertThat(linkByText.getDomAttribute("href")).contains("index.html");
 
-        // by partial link text
+        // By Partial link text
         WebElement linkByPartialText = driver.findElement(By.partialLinkText("index"));
-        assertThat(linkByPartialText.getLocation()).isEqualTo(linkByText.getLocation());
-        assertThat(linkByPartialText.getRect()).isEqualTo(linkByText.getRect());
+        assertThat(linkByPartialText.getTagName()).isEqualTo("a");
+        assertThat(linkByPartialText.getDomAttribute("href")).contains("index.html");
     }
 
     @Test
-    void testByCssSelector() {
+    public void testByCssSelector() {
         driver.get(URL);
 
-        // by CSS selector
-        WebElement hidden = driver.findElement(By.cssSelector("input[type=hidden]"));
-        assertThat(hidden.isDisplayed()).isFalse();
+        // By CSS Selector
+        WebElement hiddenElement = driver.findElement(By.cssSelector("input[type='hidden']"));
+        assertThat(hiddenElement.isDisplayed()).isFalse();
     }
 
     @Test
-    void testByXPath() {
+    public void testByXpath() {
         driver.get(URL);
 
-        // by xpath
-        WebElement hidden = driver.findElement(By.xpath("//input[@type='hidden']"));
-        assertThat(hidden.isDisplayed()).isFalse();
+        // By XPath Selector
+        WebElement hiddenElement = driver.findElement(By.xpath("//input[@type='hidden']"));
+        assertThat(hiddenElement.isDisplayed()).isFalse();
     }
-
 }
