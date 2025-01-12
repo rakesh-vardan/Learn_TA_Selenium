@@ -6,12 +6,9 @@ Welcome to the Selenium WebDriver Course project! This repository contains resou
 
 - [Introduction](#introduction)
 - [Course Overview](#course-overview)
-- [Project Structure](#project-structure)
 - [Prerequisites](#prerequisites)
 - [Setup and Installation](#setup-and-installation)
 - [Running Tests](#running-tests)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
@@ -45,11 +42,6 @@ The course consists of various sections that cover the following topics:
     - Introduction to TestNG.
     - Writing test scripts and managing test cases.
     - Reporting and test execution.
-
-## Project Structure
-
-The project is organized as follows:
-
 
 ## Prerequisites
 
